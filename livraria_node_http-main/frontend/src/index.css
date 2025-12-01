@@ -1,16 +1,95 @@
+/* =========================
+   VARIÁVEIS DE TEMA
+   ========================= */
+:root {
+  --bg-color: #f5f5f5;
+  --card-bg: #ffffff;
+  --text-color: #222222;
+
+  --primary-color: #007bff;
+  --primary-color-hover: #0056b3;
+
+  --secondary-color: #6c757d;
+  --secondary-hover: #545b62;
+
+  --danger-color: #dc3545;
+  --danger-hover: #c82333;
+
+  --success-color: #28a745;
+  --success-hover: #218838;
+
+  --border-color: #dddddd;
+  --input-bg: #ffffff;
+  --input-border: #dddddd;
+
+  --alert-success-bg: #d4edda;
+  --alert-success-border: #c3e6cb;
+  --alert-success-text: #155724;
+
+  --alert-error-bg: #f8d7da;
+  --alert-error-border: #f5c6cb;
+  --alert-error-text: #721c24;
+
+  --alert-info-bg: #d1ecf1;
+  --alert-info-border: #bee5eb;
+  --alert-info-text: #0c5460;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #f5f5f5;
+
+  --primary-color: #90caf9;
+  --primary-color-hover: #64b5f6;
+
+  --secondary-color: #9ca3af;
+  --secondary-hover: #6b7280;
+
+  --danger-color: #f87171;
+  --danger-hover: #ef4444;
+
+  --success-color: #34d399;
+  --success-hover: #22c55e;
+
+  --border-color: #333333;
+  --input-bg: #111111;
+  --input-border: #444444;
+
+  --alert-success-bg: #14532d;
+  --alert-success-border: #22c55e;
+  --alert-success-text: #bbf7d0;
+
+  --alert-error-bg: #450a0a;
+  --alert-error-border: #ef4444;
+  --alert-error-text: #fecaca;
+
+  --alert-info-bg: #0f172a;
+  --alert-info-border: #38bdf8;
+  --alert-info-text: #e0f2fe;
+}
+
+/* =========================
+   RESET BÁSICO
+   ========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* =========================
+   TIPOGRAFIA / BODY
+   ========================= */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 code {
@@ -18,14 +97,20 @@ code {
     monospace;
 }
 
-/* Estilos globais */
+/* =========================
+   LAYOUT GLOBAL
+   ========================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.btn {
+/* =========================
+   BOTÕES
+   ========================= */
+.btn,
+button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -35,42 +120,52 @@ code {
   transition: all 0.3s ease;
 }
 
+/* Botão padrão (quando só usar <button>) */
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Variações */
 .btn-primary {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color-hover);
 }
 
 .btn-secondary {
-  background-color: #6c757d;
-  color: white;
+  background-color: var(--secondary-color);
+  color: #ffffff;
 }
 
 .btn-secondary:hover {
-  background-color: #545b62;
+  background-color: var(--secondary-hover);
 }
 
 .btn-danger {
-  background-color: #dc3545;
-  color: white;
+  background-color: var(--danger-color);
+  color: #ffffff;
 }
 
 .btn-danger:hover {
-  background-color: #c82333;
+  background-color: var(--danger-hover);
 }
 
 .btn-success {
-  background-color: #28a745;
-  color: white;
+  background-color: var(--success-color);
+  color: #ffffff;
 }
 
 .btn-success:hover {
-  background-color: #218838;
+  background-color: var(--success-hover);
 }
 
+/* =========================
+   INPUTS / FORMULÁRIOS
+   ========================= */
 .input-group {
   margin-bottom: 15px;
 }
@@ -79,33 +174,43 @@ code {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-color);
 }
 
 .input-group input,
 .input-group textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-size: 14px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
 
 .input-group input:focus,
 .input-group textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
 
-.card {
-  background: white;
+/* =========================
+   CARDS / LIVROS
+   ========================= */
+.card,
+.livro-card {
+  background: var(--card-bg);
   border-radius: 8px;
+  border: 1px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
 }
 
+/* =========================
+   ALERTAS
+   ========================= */
 .alert {
   padding: 12px 20px;
   border-radius: 4px;
@@ -113,31 +218,75 @@ code {
 }
 
 .alert-success {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
+  background-color: var(--alert-success-bg);
+  border: 1px solid var(--alert-success-border);
+  color: var(--alert-success-text);
 }
 
 .alert-error {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
+  background-color: var(--alert-error-bg);
+  border: 1px solid var(--alert-error-border);
+  color: var(--alert-error-text);
 }
 
 .alert-info {
-  background-color: #d1ecf1;
-  border: 1px solid #bee5eb;
-  color: #0c5460;
+  background-color: var(--alert-info-bg);
+  border: 1px solid var(--alert-info-border);
+  color: var(--alert-info-text);
 }
 
+/* =========================
+   ESTADOS GERAIS
+   ========================= */
 .loading {
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .error {
   text-align: center;
   padding: 40px;
-  color: #dc3545;
+  color: var(--danger-color);
+}
+
+/* =========================
+   TEMA / BOTÃO DE TEMA
+   ========================= */
+.theme-toggle-btn {
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 0.4rem 0.9rem;
+  margin-left: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   BOTÃO DE FAVORITOS (GENÉRICO)
+   ========================= */
+/* Detalhes finos estão em LivroCard.css, mas deixamos um estilo base aqui */
+.fav-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  color: var(--primary-color);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.fav-btn-on {
+  color: gold;
+  transform: scale(1.1);
 }

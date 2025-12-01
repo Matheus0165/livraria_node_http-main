@@ -1,36 +1,34 @@
 .livro-card {
-  background: white;
+  background-color: var(--card-bg);
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
-.livro-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.livro-card h3 {
-  margin: 0 0 15px 0;
-  color: #333;
-  font-size: 20px;
-}
-
-.livro-card p {
-  margin: 8px 0;
-  color: #666;
-  font-size: 14px;
-}
-
-.card-actions {
-  margin-top: 20px;
+.livro-card-header {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
-.card-actions .btn {
-  flex: 1;
-  font-size: 13px;
-  padding: 8px 12px;
+/* ⭐ BOTÃO DE FAVORITO */
+.fav-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* cor sempre forte pra aparecer nos dois temas */
+  color: var(--primary-color);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.fav-btn:hover {
+  transform: scale(1.15);
+}
+
+.fav-btn-on {
+  color: gold;
+  transform: scale(1.15);
 }

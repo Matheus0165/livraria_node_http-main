@@ -44,8 +44,9 @@ function init() {
             categoria TEXT NOT NULL,
             ano INTEGER NOT NULL,
             editora TEXT DEFAULT ''
-        )
+        );
     `);
+
     run(`
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -53,9 +54,20 @@ function init() {
             email TEXT NOT NULL UNIQUE,
             password_hash TEXT NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
+        );
     `);
-    console.log('Banco de dados SQLite inicializado (livros, users)');
+
+    run(`
+        CREATE TABLE IF NOT EXISTS favorites (
+            user_id INTEGER NOT NULL,
+            book_id INTEGER NOT NULL,
+            PRIMARY KEY (user_id, book_id),
+            FOREIGN KEY (user_id) REFERENCES users(id),
+            FOREIGN KEY (book_id) REFERENCES livros(id)
+        );
+    `);
+
+    console.log('Banco de dados SQLite inicializado (livros, users, favorites)');
 }
 
 module.exports = { getDb, run, get, all, query, init };
